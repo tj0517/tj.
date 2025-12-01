@@ -15,17 +15,16 @@ export const Contact: React.FC = () => {
     e.preventDefault();
     setStatus('loading');
 
-    // 👇 TUTAJ WKLEJ DANE ZE STRONY EMAILJS 👇
-    // Jeśli nie masz ich jeszcze, załóż darmowe konto na emailjs.com
+    // 👇 WKLEJ SWOJE DANE Z EMAILJS TUTAJ 👇
     const serviceID = 'service_kg9k0qy';   // np. service_z93xxxx
     const templateID = 'template_ici8h0c'; // np. template_8d2xxxx
-    const publicKey = 'TMT0ZG674zBx-DMBR';   // np. WjKS82_... (z zakładki Account)
+    const publicKey = 'xSYOvarW4LsKeEg7k3Dwk';   // np. WjKS82_... (z zakładki Account)
 
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
       message: formData.message,
-      to_name: 'Tymon',
+      to_name: 'Tymon', // Twoje imię, które pojawi się w mailu
     };
 
     emailjs.send(serviceID, templateID, templateParams, publicKey)
@@ -37,7 +36,7 @@ export const Contact: React.FC = () => {
         // Reset statusu po 5 sekundach
         setTimeout(() => setStatus('idle'), 5000);
       }, (err) => {
-        console.error('FAILED...', err);
+        console.log('FAILED...', err);
         setStatus('error');
       });
   };
@@ -147,7 +146,7 @@ export const Contact: React.FC = () => {
                 {status === 'error' && (
                     <div className="mt-6 p-4 bg-red-50 border border-red-200 text-red-800 rounded-sm">
                         <p className="font-bold">Błąd wysyłki</p>
-                        <p>Sprawdź konsolę (F12) w poszukiwaniu szczegółów lub konfigurację EmailJS.</p>
+                        <p>Sprawdź konfigurację EmailJS (uprawnienia Gmail) lub spróbuj później.</p>
                     </div>
                 )}
             </div>
