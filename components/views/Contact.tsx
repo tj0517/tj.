@@ -14,12 +14,10 @@ export const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-
-    // 👇 TUTAJ WKLEJ DANE ZE STRONY EMAILJS 👇
-    // Jeśli nie masz ich jeszcze, załóż darmowe konto na emailjs.com
-    const serviceID = 'service_kg9k0qy';   // np. service_z93xxxx
-    const templateID = 'template_ici8h0c'; // np. template_8d2xxxx
-    const publicKey = 'TMT0ZG674zBx-DMBR';   // np. WjKS82_... (z zakładki Account)
+    
+      const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     const templateParams = {
       from_name: formData.name,
