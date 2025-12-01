@@ -69,7 +69,7 @@ const jsonLd = {
          Otwarty na oferty
         </div>
         
-       <h1 className="font-display font-black text-4xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tighter leading-[0.9] mb-12">
+       <h1 className="font-display font-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tighter leading-[0.9] mb-12">
   TWOJA <br />
   <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-500 to-black/80">DEDYKOWANA</span> <br />
   STRONA WWW

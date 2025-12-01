@@ -26,7 +26,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activePage, onNavigate
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F5F5F5] selection:bg-black selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#F5F5F5] selection:bg-black selection:text-white overflow-x-crop">
       {/* Top Border */}
       <div className="fixed top-0 left-0 w-full h-2 bg-black z-50" />
       

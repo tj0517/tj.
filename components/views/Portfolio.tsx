@@ -30,7 +30,7 @@ export const Portfolio: React.FC = () => {
   return (
     <div className="bg-white min-h-screen">
       <div className="p-8 lg:p-16 border-b-2 border-black">
-        <h2 className="font-display font-black text-4xl md:text-6xl lg:text-7xl xl:text-8xl mb-4">REALIZACJE</h2>
+        <h2 className="font-display font-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl mb-4">REALIZACJE</h2>
         <p className="text-xl">Wybrane projekty z ostatnich lat.</p>
       </div>
 

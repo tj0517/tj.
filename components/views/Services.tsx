@@ -28,7 +28,7 @@ export const Services: React.FC = () => {
     <div className="bg-white">
       {/* Nagłówek sekcji */}
       <div className="p-8 lg:p-16 border-b-2 border-black">
-        <h2 className="font-display font-black text-6xl md:text-8xl mb-8">OFERTA</h2>
+        <h2 className="font-display font-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl mb-8">OFERTA</h2>
         <p className="text-xl max-w-2xl font-medium">
           Kompleksowe rozwiązania cyfrowe. Nie tworzymy tylko witryn; budujemy narzędzia biznesowe zaprojektowane tak, by generować leady i budować autorytet Twojej marki.
         </p>
