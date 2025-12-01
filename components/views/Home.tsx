@@ -6,6 +6,61 @@ interface HomeProps {
 }
 
 export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService', // Idealne dla freelancera/agencji
+    name: 'Tymon Jezionek - Dedykowane Strony WWW',
+    url: 'https://tymonjezionek.pl', // Podmień na swój adres
+    image: 'https://tymonjezionek.pl/logo.png', // Link do Twojego logo/zdjęcia
+    description: 'Specjalista od projektowania aplikacji internetowych. Oferuję darmowy audyt SEO oraz tworzenie dedykowanych stron internetowych nastawionych na sprzedaż.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Gdańsk',
+      addressCountry: 'PL'
+    },
+    // Wskazanie widełek cenowych pomaga w pozycjonowaniu na frazy typu "cena"
+    priceRange: '$$', 
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      opens: '09:00',
+      closes: '17:00'
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Usługi Programistyczne i SEO',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Projektowanie aplikacji internetowych'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Dedykowana strona internetowa'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Audyt SEO Online'
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
