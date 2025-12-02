@@ -22,7 +22,7 @@ const projects: Project[] = [
     // Przykładowe zdjęcie z Unsplash
     image: '/bloxnauts.png',
     link: 'https://bloxnauts.com/',
-    description: 'Prosta witryna, zrealizowana z dostarczonego proejtku graficznego klienta, design skupiający się na animacjach i głębi tła, co wpasowuje się w klimat grupy docelowej.'
+    description: 'Prosta witryna, zrealizowana z dostarczonego projektu graficznego klienta, design skupiający się na animacjach i głębi tła, co wpasowuje się w klimat grupy docelowej.'
   },
     {
     id: '3',
