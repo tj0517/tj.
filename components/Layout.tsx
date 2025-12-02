@@ -104,7 +104,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activePage, onNavigate
       </main>
 
       {/* Footer */}
-<footer className="border-t-2 border-black bg-white lg:mx-2 mb-2 border-b-2 border-x-2">
+<footer className="border-t-2 border-black bg-white lg:mx-2  border-b-2 border-x-2">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y-2 md:divide-y-0 md:divide-x-2 divide-black">
           {/* Kolumna 1: Logo i Prawa autorskie */}
 <div className="p-8 h-64 flex flex-col justify-between items-start">
