@@ -30,7 +30,7 @@ const projects: Project[] = [
     category: 'KLUB MMA',
     year: '2025',
     // Przykładowe zdjęcie z Unsplash pasujące do tematyki
-    image: '/fight-gym.png', 
+    image: '/fight_gym.png', 
     link: 'https://fight-gym.vercel.app/',
     description: 'Przykładowy layout strony dla siłowni Fight Gym. Układ responsywny z dużymi sekcjami hero, kartami treningów oraz harmonogramem zajęć. Projekt stworzony w Next.js z użyciem Tailwind CSS, umożliwiający łatwe dodawanie treści i zdjęć.',
   },
