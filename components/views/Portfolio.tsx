@@ -8,7 +8,7 @@ const projects: Project[] = [
     id: '1',
     title: 'SEACLOUDS',
     category: 'GAS&OIL',
-    year: '2024',
+    year: '2025',
     // Przykładowe zdjęcie z Unsplash pasujące do tematyki
     image: '/seaclouds.png', 
     link: 'https://www.seaclouds.eu/',
@@ -18,11 +18,31 @@ const projects: Project[] = [
     id: '2',
     title: 'BLOXNAUTS',
     category: 'PRODUCENT GIER',
-    year: '2023',
+    year: '2025',
     // Przykładowe zdjęcie z Unsplash
     image: '/bloxnauts.png',
     link: 'https://bloxnauts.com/',
     description: 'Prosta witryna, zrealizowana z dostarczonego proejtku graficznego klienta, design skupiający się na animacjach i głębi tła, co wpasowuje się w klimat grupy docelowej.'
+  },
+    {
+    id: '3',
+    title: 'Fight Gym',
+    category: 'KLUB MMA',
+    year: '2025',
+    // Przykładowe zdjęcie z Unsplash pasujące do tematyki
+    image: '/fight-gym.png', 
+    link: 'https://fight-gym.vercel.app/',
+    description: 'Przykładowy layout strony dla siłowni Fight Gym. Układ responsywny z dużymi sekcjami hero, kartami treningów oraz harmonogramem zajęć. Projekt stworzony w Next.js z użyciem Tailwind CSS, umożliwiający łatwe dodawanie treści i zdjęć.',
+  },
+  {
+    id: '4',
+    title: 'Azure Gym',
+    category: 'SIŁOWNIA',
+    year: '2024',
+    // Przykładowe zdjęcie z Unsplash
+    image: '/azure.png',
+    link: 'https://gym-azure-nine.vercel.app/',
+    description: 'Przykładowy layout strony dla siłowni Azure Gym. Strona oparta na HTML5 i CSS, z minimalistycznym designem i przejrzystym układem sekcji.',
   },
 ];
 
