@@ -72,7 +72,7 @@ const jsonLd = {
        <h1 className="font-display font-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tighter leading-[0.9] mb-12">
   TWOJA <br />
   <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-500 to-black/80">DEDYKOWANA</span> <br />
-  STRONA WWW
+  STRONA WWW<span className="text-[#0D79F2]">.</span>
 </h1>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
@@ -120,8 +120,8 @@ const jsonLd = {
       <section className="py-24 bg-black text-white overflow-hidden border-b-2 border-black">
         <div className="w-full text-center">
              <h2 className="font-display text-5xl md:text-7xl font-bold tracking-tight">
-              OD KONCEPCJI PO WDROŻENIE
-             </h2>
+  OD KONCEPCJI PO WDROŻENIE<span className="text-[#0D79F2]">.</span>
+</h2>
         </div>
       </section>
     </div>

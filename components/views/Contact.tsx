@@ -45,7 +45,7 @@ export const Contact: React.FC = () => {
       {/* Sidebar z danymi kontaktowymi */}
       <div className="w-full lg:w-[40%] border-b-2 lg:border-b-0 lg:border-r-2 border-black bg-neutral-100 p-8 lg:p-16 lg:pl-10 flex flex-col justify-between">
         <div>
-          <h2 className="font-display font-black text-5xl mb-12">LET'S<br/>TALK</h2>
+          <h2 className="font-display font-black text-5xl mb-12">LET'S<br/>TALK<span className="text-[#0D79F2]">.</span></h2>
           
           <div className="space-y-8">
             <div className="flex gap-4 items-start">

@@ -38,9 +38,16 @@ export const Layout: React.FC<LayoutProps> = ({ children, activePage, onNavigate
       <nav className={`fixed top-2 left-0 lg:left-2 right-0 lg:right-2 z-40 transition-all duration-300 border-b-2 border-black bg-[#F5F5F5] ${scrolled ? 'py-0' : 'py-0'}`}>
         <div className="flex justify-between items-stretch h-16 lg:h-20">
           {/* Logo Section */}
-          <div className="flex items-center px-4 lg:px-8 border-r-2 border-black bg-black text-white hover:bg-neutral-800 transition-colors cursor-pointer" onClick={() => onNavigate('home')}>
-            <span className="font-display font-bold text-xl lg:text-2xl tracking-tighter">TYMONJEZIONEK</span>
-          </div>
+          <div 
+  className="flex items-center justify-center px-4 lg:px-8 border-r-2 border-black bg-black text-white hover:bg-neutral-800 transition-colors cursor-pointer min-w-[100px] lg:min-w-[140px]" 
+  onClick={() => onNavigate('home')}
+>
+   <img 
+     src="/logo_w.png" 
+     alt="Logo" 
+     className="h-6 md:h-8 w-auto object-contain " 
+   />
+</div>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex flex-1 justify-end">
@@ -88,7 +95,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activePage, onNavigate
       )}
 
       {/* Main Content Area */}
-      <main className="flex-1 mt-[72px] lg:mt-[88px] w-full max-w-[1920px] mx-auto lg:px-2 relative">
+      <main className="flex-1 mt-[52px] lg:mt-[68px] w-full max-w-[1920px] mx-auto lg:px-2 relative">
         <div className="min-h-[calc(100vh-88px)] border-x-0 lg:border-x-0 border-black/0">
            {children}
         </div>
@@ -98,10 +105,14 @@ export const Layout: React.FC<LayoutProps> = ({ children, activePage, onNavigate
 <footer className="border-t-2 border-black bg-white lg:mx-2 mb-2 border-b-2 border-x-2">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y-2 md:divide-y-0 md:divide-x-2 divide-black">
           {/* Kolumna 1: Logo i Prawa autorskie */}
-          <div className="p-8 h-64 flex flex-col justify-between">
-            <span className="font-display font-bold text-2xl">TJ.</span>
-            <p className="text-sm">© 2025 Tymon Jezionek.<br/>Wszelkie prawa zastrzeżone.</p>
-          </div>
+<div className="p-8 h-64 flex flex-col justify-between items-start">
+  <img 
+    src="/SYGNET.png" 
+    alt="Sygnet" 
+    className="h-10 w-auto object-contain" 
+  />
+  <p className="text-sm">© 2025 Tymon Jezionek.<br/>Wszelkie prawa zastrzeżone.</p>
+</div>
           
           {/* Kolumna 2: CTA (Wezwanie do działania) */}
           <div className="p-8 h-64 flex flex-col justify-between hover:bg-black hover:text-white transition-colors group cursor-pointer" onClick={() => onNavigate('contact')}>
@@ -112,7 +123,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, activePage, onNavigate
           {/* Kolumna 3: Social Media (Tylko IG) */}
           <div className="p-8 h-64 flex flex-col justify-start space-y-4">
             <span className="font-bold text-sm opacity-50">SOCIAL MEDIA</span>
-            <a href="#" className="text-lg hover:underline">Instagram</a>
+            <a href="https://www.instagram.com/tj.webistes/" target="_blank" className="text-lg hover:underline">Instagram</a>
           </div>
 
           {/* Kolumna 4: Lokalizacja */}
