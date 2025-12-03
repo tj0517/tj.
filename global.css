@@ -1,0 +1,46 @@
+ @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ 
+ 
+ 
+ :root {
+        --font-display: 'Syne', sans-serif;
+        --font-body: 'Space Grotesk', sans-serif;
+      }
+      body {
+        font-family: var(--font-body);
+        background-color: #F5F5F5;
+        color: #171717;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-display);
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #171717;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #333;
+      }
+@layer components {
+  /* Tworzysz własną klasę, ale używasz tailwinda */
+  .hero-title {
+    @apply font-display font-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tighter leading-[0.9] mb-12;
+  }
+  
+  .btn-primary {
+    @apply group flex items-center gap-4 text-xl font-bold border-b-2 border-black pb-1 hover:pl-4 transition-all;
+  }
+  
+  .card {
+    @apply p-12 min-h-[400px] flex flex-col justify-between hover:bg-neutral-100 transition-colors border-b-2 border-black;
+  }
+}

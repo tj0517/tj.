@@ -1,36 +1,51 @@
 import React from 'react';
 import { Check } from 'lucide-react';
-import { Service } from '../../types';
+import { useTranslation, Trans } from 'react-i18next'; // 1. Import hooków
 
-const services: Service[] = [
-  {
-    id: 'design',
-    title: 'UI/UX DESIGN',
-    description: 'Przekładamy wartości Twojej marki na język wizualny. Każda dedykowana strona internetowa, którą tworzymy, łączy minimalistyczną estetykę z maksymalną użytecznością.',
-    features: ['Unikalna Identyfikacja Wizualna', 'Makiety i Prototypowanie', 'Responsywność (RWD)', 'Dostępność (Accessibility)']
-  },
-  {
-    id: 'dev',
-    title: 'DEVELOPMENT',
-    description: 'Oferujemy zaawansowane projektowanie aplikacji internetowych. Solidny kod, nowoczesny stack (React, Next.js) i architektura nastawiona na szybkość oraz skalowalność.',
-    features: ['Aplikacje SPA / PWA', 'Integracje z CMS', 'Customowe Animacje', 'Rozwój API']
-  },
-  {
-    id: 'growth',
-    title: 'GROWTH & SEO',
-    description: 'Nawet najpiękniejsza strona jest bezużyteczna, jeśli nikt jej nie widzi. Przeprowadzamy audyt SEO online i wdrażamy strategię, by Google pokochało Twój serwis.',
-    features: ['Techniczny Audyt SEO', 'Optymalizacja Słów Kluczowych', 'Poprawa Wydajności (Core Vitals)', 'Konfiguracja Analityki']
-  }
-];
+// Jeśli masz typ Service w pliku types.ts, zaimportuj go. 
+// Jeśli nie, tu jest szybka definicja lokalna dla TypeScript:
+interface Service {
+  id: string;
+  title: string;
+  description: string;
+  features: string[];
+}
 
 export const Services: React.FC = () => {
+  const { t } = useTranslation(); // 2. Inicjalizacja hooka
+
+  // 3. Tablica usług jest teraz dynamiczna (reaguje na zmianę języka)
+  const services: Service[] = [
+    {
+      id: 'design',
+      title: t('services.items.design.title'),
+      description: t('services.items.design.desc'),
+      // returnObjects: true jest kluczowe, by pobrać tablicę stringów z JSON-a
+      features: t('services.items.design.features', { returnObjects: true }) as string[]
+    },
+    {
+      id: 'dev',
+      title: t('services.items.dev.title'),
+      description: t('services.items.dev.desc'),
+      features: t('services.items.dev.features', { returnObjects: true }) as string[]
+    },
+    {
+      id: 'growth',
+      title: t('services.items.growth.title'),
+      description: t('services.items.growth.desc'),
+      features: t('services.items.growth.features', { returnObjects: true }) as string[]
+    }
+  ];
+
   return (
     <div className="bg-white">
       {/* Nagłówek sekcji */}
       <div className="p-8 lg:p-16 border-b-2 border-black">
-        <h2 className="font-display font-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl mb-8">OFERTA<span className="text-[#0D79F2]">.</span></h2>
+        <h2 className="font-display font-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl mb-8">
+          {t('services.header.title')}<span className="text-[#0D79F2]">.</span>
+        </h2>
         <p className="text-xl max-w-2xl font-medium">
-          Kompleksowe rozwiązania cyfrowe. Nie tworzymy tylko witryn; budujemy narzędzia biznesowe zaprojektowane tak, by generować leady i budować autorytet Twojej marki.
+          {t('services.header.subtitle')}
         </p>
       </div>
 
@@ -59,11 +74,20 @@ export const Services: React.FC = () => {
 
       {/* Sekcja budżetowa */}
       <div className="p-8 lg:p-16 bg-[#F5F5F5] border-b-2 border-black text-center">
-        <h3 className="font-display font-bold text-3xl mb-4">BUDŻET</h3>
+        <h3 className="font-display font-bold text-3xl mb-4">{t('services.budget.title')}</h3>
         <p className="text-xl">
-          Typowy budżet projektu waha się od <span className="font-bold underline">5,000 PLN do 7,000 PLN</span> w zależności od stopnia skomplikowania.
+          {/* 
+            Używamy Trans, aby obsłużyć tag <0>...</0> z pliku tłumaczeń.
+            Element w tablicy components pod indeksem 0 zastąpi <0> w tekście.
+          */}
+          <Trans 
+            i18nKey="services.budget.desc" 
+            components={[<span key="0" className="font-bold underline" />]} 
+          />
           <br/>
-          <span className="text-base text-neutral-500 mt-2 block">(Każdy projekt wyceniamy indywidualnie.)</span>
+          <span className="text-base text-neutral-500 mt-2 block">
+            {t('services.budget.note')}
+          </span>
         </p>
       </div>
     </div>

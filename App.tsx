@@ -5,6 +5,7 @@ import { Services } from './components/views/Services';
 import { Portfolio } from './components/views/Portfolio';
 import { Blog } from './components/views/Blog';
 import { Contact } from './components/views/Contact';
+import './i18n'; 
 
 const App: React.FC = () => {
   const [activePage, setActivePage] = useState('home');
@@ -30,6 +31,8 @@ const App: React.FC = () => {
         return <Home onNavigate={setActivePage} />;
     }
   };
+
+  
 
   return (
     <Layout activePage={activePage} onNavigate={setActivePage}>

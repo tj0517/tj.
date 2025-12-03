@@ -1,57 +1,58 @@
 import React from 'react';
-// Pamiętaj, aby zaktualizować interfejs Project w pliku types.ts o pola 'image' i 'link'
-import { Project } from '../../types'; 
+import { Project } from '../../types'; // Upewnij się co do ścieżki
 import { ArrowUpRight } from 'lucide-react';
-
-const projects: Project[] = [
-  {
-    id: '1',
-    title: 'SEACLOUDS',
-    category: 'GAS&OIL',
-    year: '2025',
-    // Przykładowe zdjęcie z Unsplash pasujące do tematyki
-    image: '/seaclouds.png', 
-    link: 'https://www.seaclouds.eu/',
-    description: 'Minimalistyczna strona dla firmy z sektora GAS&OIL. Projekt skupia się na przedstawieniu wizji oraz wieloletniego doświadczenia marki.'
-  },
-  {
-    id: '2',
-    title: 'BLOXNAUTS',
-    category: 'PRODUCENT GIER',
-    year: '2025',
-    // Przykładowe zdjęcie z Unsplash
-    image: '/bloxnauts.png',
-    link: 'https://bloxnauts.com/',
-    description: 'Prosta witryna, zrealizowana z dostarczonego projektu graficznego klienta, design skupiający się na animacjach i głębi tła, co wpasowuje się w klimat grupy docelowej.'
-  },
-    {
-    id: '3',
-    title: 'Fight Gym',
-    category: 'KLUB MMA',
-    year: '2025',
-    // Przykładowe zdjęcie z Unsplash pasujące do tematyki
-    image: '/fight_gym.png', 
-    link: 'https://fight-gym.vercel.app/',
-    description: 'Przykładowy layout strony dla siłowni Fight Gym. Układ responsywny z dużymi sekcjami hero, kartami treningów oraz harmonogramem zajęć. Projekt stworzony w Next.js z użyciem Tailwind CSS, umożliwiający łatwe dodawanie treści i zdjęć.',
-  },
-  {
-    id: '4',
-    title: 'Azure Gym',
-    category: 'SIŁOWNIA',
-    year: '2024',
-    // Przykładowe zdjęcie z Unsplash
-    image: '/azure.png',
-    link: 'https://gym-azure-nine.vercel.app/',
-    description: 'Przykładowy layout strony dla siłowni Azure Gym. Strona oparta na HTML5 i CSS, z minimalistycznym designem i przejrzystym układem sekcji.',
-  },
-];
+import { useTranslation } from 'react-i18next'; // <--- IMPORT
 
 export const Portfolio: React.FC = () => {
+  const { t } = useTranslation(); // <--- HOOK
+
+  // Tablica z projektami wewnątrz komponentu
+  const projects: Project[] = [
+    {
+      id: '1',
+      title: 'SEACLOUDS',
+      category: t('portfolio.items.p1.category'), // Pobieramy tłumaczenie
+      year: '2025',
+      image: '/seaclouds.png', 
+      link: 'https://www.seaclouds.eu/',
+      description: t('portfolio.items.p1.desc')
+    },
+    {
+      id: '2',
+      title: 'BLOXNAUTS',
+      category: t('portfolio.items.p2.category'),
+      year: '2025',
+      image: '/bloxnauts.png',
+      link: 'https://bloxnauts.com/',
+      description: t('portfolio.items.p2.desc')
+    },
+    {
+      id: '3',
+      title: 'Fight Gym',
+      category: t('portfolio.items.p3.category'),
+      year: '2025',
+      image: '/fight_gym.png', 
+      link: 'https://fight-gym.vercel.app/',
+      description: t('portfolio.items.p3.desc'),
+    },
+    {
+      id: '4',
+      title: 'Azure Gym',
+      category: t('portfolio.items.p4.category'),
+      year: '2024',
+      image: '/azure.png',
+      link: 'https://gym-azure-nine.vercel.app/',
+      description: t('portfolio.items.p4.desc'),
+    },
+  ];
+
   return (
     <div className="bg-white min-h-screen">
       <div className="p-8 lg:p-16 border-b-2 border-black">
-        <h2 className="font-display font-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl mb-4">REALIZACJE<span className="text-[#0D79F2]">.</span></h2>
-        <p className="text-xl">Wybrane projekty z ostatnich lat.</p>
+        <h2 className="font-display font-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl mb-4">
+            {t('portfolio.header.title')}<span className="text-[#0D79F2]">.</span>
+        </h2>
+        <p className="text-xl">{t('portfolio.header.subtitle')}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 divide-y-2 md:divide-y-0 md:divide-x-2 divide-black border-b-2 border-black">
@@ -65,7 +66,7 @@ export const Portfolio: React.FC = () => {
           >
             {/* Sekcja zdjęcia */}
             <div className="w-full h-[300px] mb-8 overflow-hidden border-2 border-black relative">
-                {/* Overlay przy hoverze (opcjonalny, lekko przyciemnia zdjęcie) */}
+                {/* Overlay */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors z-10 duration-500" />
                 
                 <img 

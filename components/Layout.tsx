@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { NavItem } from '../types';
+import { NavItem } from '../types'; // Upewnij się, że ta ścieżka jest poprawna
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { CookieBanner } from './cookies';
+import { useTranslation } from 'react-i18next'; // <--- IMPORT
+import { LanguageSwitcher } from './LanguageSwitcher.tsx'; // <--- IMPORT
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,16 +11,18 @@ interface LayoutProps {
   onNavigate: (page: string) => void;
 }
 
-const navItems: NavItem[] = [
-  { label: 'HOME', path: 'home' },
-  { label: 'OFERTA', path: 'offer' },
-  { label: 'REALIZACJE', path: 'realizations' },
-  { label: 'KONTAKT', path: 'contact' },
-];
-
 export const Layout: React.FC<LayoutProps> = ({ children, activePage, onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useTranslation(); // <--- HOOK
+
+  // Przeniosłem navItems do środka, aby użyć t()
+  const navItems: NavItem[] = [
+    { label: t('nav.home'), path: 'home' },
+    { label: t('nav.offer'), path: 'offer' },
+    { label: t('nav.realizations'), path: 'realizations' },
+    { label: t('nav.contact'), path: 'contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -39,17 +43,18 @@ export const Layout: React.FC<LayoutProps> = ({ children, activePage, onNavigate
       {/* Navigation */}
       <nav className={`fixed top-2 left-0 lg:left-2 right-0 lg:right-2 z-40 transition-all duration-300 border-b-2 border-black bg-[#F5F5F5] ${scrolled ? 'py-0' : 'py-0'}`}>
         <div className="flex justify-between items-stretch h-16 lg:h-20">
+          
           {/* Logo Section */}
           <div 
-  className="flex items-center justify-center px-4 lg:px-8 border-r-2 border-black bg-black text-white hover:bg-neutral-800 transition-colors cursor-pointer min-w-[100px] lg:min-w-[140px]" 
-  onClick={() => onNavigate('home')}
->
-   <img 
-     src="/logo_w.png" 
-     alt="Logo" 
-     className="h-6 md:h-8 w-auto object-contain " 
-   />
-</div>
+            className="flex items-center justify-center px-4 lg:px-8 border-r-2 border-black bg-black text-white hover:bg-neutral-800 transition-colors cursor-pointer min-w-[100px] lg:min-w-[140px]" 
+            onClick={() => onNavigate('home')}
+          >
+             <img 
+               src="/logo_w.png" 
+               alt="Logo" 
+               className="h-6 md:h-8 w-auto object-contain" 
+             />
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex flex-1 justify-end">
@@ -62,6 +67,9 @@ export const Layout: React.FC<LayoutProps> = ({ children, activePage, onNavigate
                 {item.label}
               </button>
             ))}
+            
+            {/* Język (Desktop) - dodany na końcu paska */}
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -89,8 +97,12 @@ export const Layout: React.FC<LayoutProps> = ({ children, activePage, onNavigate
               {item.label}
             </button>
           ))}
+          
+          {/* Język (Mobile) */}
+          <LanguageSwitcher mobile />
+
           <div className="mt-auto">
-             <p className="text-sm font-bold opacity-50 mb-2">CONTACT</p>
+             <p className="text-sm font-bold opacity-50 mb-2">{t('nav.contact')}</p>
              <p className="text-xl">tjezionek2000@gmail.com</p>
           </div>
         </div>
@@ -104,35 +116,37 @@ export const Layout: React.FC<LayoutProps> = ({ children, activePage, onNavigate
       </main>
 
       {/* Footer */}
-<footer className="border-t-2 border-black bg-white lg:mx-2  border-b-2 border-x-2">
+      <footer className="border-t-2 border-black bg-white lg:mx-2 border-b-2 border-x-2">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y-2 md:divide-y-0 md:divide-x-2 divide-black">
-          {/* Kolumna 1: Logo i Prawa autorskie */}
-<div className="p-8 h-64 flex flex-col justify-between items-start">
-  <img 
-    src="/SYGNET.png" 
-    alt="Sygnet" 
-    className="h-10 w-auto object-contain" 
-  />
-  <p className="text-sm">© 2025 Tymon Jezionek.<br/>Wszelkie prawa zastrzeżone.</p>
-</div>
           
-          {/* Kolumna 2: CTA (Wezwanie do działania) */}
+          {/* Kolumna 1: Logo i Prawa autorskie */}
+          <div className="p-8 h-64 flex flex-col justify-between items-start">
+            <img 
+              src="/SYGNET.png" 
+              alt="Sygnet" 
+              className="h-10 w-auto object-contain" 
+            />
+            {/* Użycie dangerouslySetInnerHTML dla obsługi <br/> w tłumaczeniu */}
+            <p className="text-sm" dangerouslySetInnerHTML={{ __html: t('footer.rights') }}></p>
+          </div>
+          
+          {/* Kolumna 2: CTA */}
           <div className="p-8 h-64 flex flex-col justify-between hover:bg-black hover:text-white transition-colors group cursor-pointer" onClick={() => onNavigate('contact')}>
-            <span className="font-bold text-sm">ROZPOCZNIJ PROJEKT</span>
+            <span className="font-bold text-sm">{t('footer.start_project')}</span>
             <ArrowRight className="w-12 h-12 transform group-hover:-rotate-45 transition-transform" />
           </div>
 
-          {/* Kolumna 3: Social Media (Tylko IG) */}
+          {/* Kolumna 3: Social Media */}
           <div className="p-8 h-64 flex flex-col justify-start space-y-4">
-            <span className="font-bold text-sm opacity-50">SOCIAL MEDIA</span>
-            <a href="https://www.instagram.com/tj.webistes/" target="_blank" className="text-lg hover:underline">Instagram</a>
+            <span className="font-bold text-sm opacity-50">{t('footer.socials')}</span>
+            <a href="https://www.instagram.com/tj.webistes/" target="_blank" rel="noreferrer" className="text-lg hover:underline">Instagram</a>
           </div>
 
           {/* Kolumna 4: Lokalizacja */}
           <div className="p-8 h-64 flex flex-col justify-start space-y-4">
-            <span className="font-bold text-sm opacity-50">LOKALIZACJA</span>
-            <p className="text-lg">Gdańsk, Polska</p>
-            <p className="text-lg">Zdalnie (Globalnie)</p>
+            <span className="font-bold text-sm opacity-50">{t('footer.location_label')}</span>
+            <p className="text-lg">{t('footer.location_city')}</p>
+            <p className="text-lg">{t('footer.location_remote')}</p>
           </div>
         </div>
       </footer>
