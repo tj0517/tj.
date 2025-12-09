@@ -10,10 +10,32 @@ import './i18n';
 const App: React.FC = () => {
   const [activePage, setActivePage] = useState('home');
 
-  // Simple scroll to top on navigation
   useEffect(() => {
+    // 1. Przewijanie do góry (Twoja istniejąca logika)
     window.scrollTo(0, 0);
-  }, [activePage]);
+
+    // 2. Tłumaczenie Twoich nazw stanów na "ładne" ścieżki dla GA
+    // Dzięki temu w raportach zobaczysz "/oferta" zamiast dziwnych nazw
+    const pathMapping: Record<string, string> = {
+      home: '/',
+      offer: '/oferta',
+      realizations: '/realizacje', // lub '/portfolio'
+      blog: '/blog',
+      contact: '/kontakt'
+    };
+
+    // Pobierz ścieżkę (jeśli nie ma w mapie, użyj nazwy stanu)
+    const virtualPath = pathMapping[activePage] || `/${activePage}`;
+
+    // 3. Wysłanie zdarzenia do GA4
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'page_view', {
+        page_path: virtualPath,
+        page_title: activePage.charAt(0).toUpperCase() + activePage.slice(1) // Np. "Offer"
+      });
+    }
+
+  }, [activePage]); // Uruchamia się przy każdej zmianie activePage
 
   const renderContent = () => {
     switch (activePage) {
@@ -31,8 +53,6 @@ const App: React.FC = () => {
         return <Home onNavigate={setActivePage} />;
     }
   };
-
-  
 
   return (
     <Layout activePage={activePage} onNavigate={setActivePage}>
