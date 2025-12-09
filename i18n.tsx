@@ -117,7 +117,7 @@ contact: {
         items: {
           p1: {
             category: "STRONA MARKI",
-            desc: "Minimalistyczna strona dla firmy z sektora GAS&OIL, strona zawiera system obługi bloga z panelu Sanity CMS. Projekt skupia się na przedstawieniu wizji oraz wieloletniego doświadczenia marki."
+            desc: "Minimalistyczna strona dla firmy z sektora GAS&OIL, strona zawiera system obsługi bloga z panelu Sanity CMS. Projekt skupia się na przedstawieniu wizji oraz doświadczenia marki."
           },
 p2: {
   category: "E-COMMERCE",
@@ -231,7 +231,7 @@ p2: {
         items: {
           p1: {
             category: "BRAND IDENTITY SITE",
-            desc: "Minimalist website for a GAS&OIL sector company, website include blog CMS via Sanity. The project focuses on presenting the vision and years of brand experience."
+            desc: "Minimalist website for a GAS&OIL sector company, website include blog CMS via Sanity. The project focuses on presenting the vision and brand experience."
           },
           p2: {
             category: "SPORT ECOMMERCE",
