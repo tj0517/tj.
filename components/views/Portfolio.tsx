@@ -17,33 +17,16 @@ export const Portfolio: React.FC = () => {
       link: 'https://www.seaclouds.eu/',
       description: t('portfolio.items.p1.desc')
     },
-    {
+     {
       id: '2',
-      title: 'BLOXNAUTS',
-      category: t('portfolio.items.p2.category'),
+      title: 'SHADOW LAB',
+      category: t('portfolio.items.p2.category'), // Pobieramy tłumaczenie
       year: '2025',
-      image: '/bloxnauts.png',
-      link: 'https://bloxnauts.com/',
+      image: '/shadow.png', 
+      link: 'https://shadowlab.vercel.app',
       description: t('portfolio.items.p2.desc')
-    },
-    {
-      id: '3',
-      title: 'Fight Gym',
-      category: t('portfolio.items.p3.category'),
-      year: '2025',
-      image: '/fight_gym.png', 
-      link: 'https://fight-gym.vercel.app/',
-      description: t('portfolio.items.p3.desc'),
-    },
-    {
-      id: '4',
-      title: 'Azure Gym',
-      category: t('portfolio.items.p4.category'),
-      year: '2024',
-      image: '/azure.png',
-      link: 'https://gym-azure-nine.vercel.app/',
-      description: t('portfolio.items.p4.desc'),
-    },
+    }
+   
   ];
 
   return (

@@ -116,21 +116,13 @@ contact: {
         },
         items: {
           p1: {
-            category: "GAS&OIL",
-            desc: "Minimalistyczna strona dla firmy z sektora GAS&OIL. Projekt skupia się na przedstawieniu wizji oraz wieloletniego doświadczenia marki."
+            category: "STRONA MARKI",
+            desc: "Minimalistyczna strona dla firmy z sektora GAS&OIL, strona zawiera system obługi bloga z panelu Sanity CMS. Projekt skupia się na przedstawieniu wizji oraz wieloletniego doświadczenia marki."
           },
-          p2: {
-            category: "PRODUCENT GIER",
-            desc: "Prosta witryna, zrealizowana z dostarczonego projektu graficznego klienta, design skupiający się na animacjach i głębi tła."
-          },
-          p3: {
-            category: "KLUB MMA",
-            desc: "Przykładowy layout strony dla siłowni Fight Gym. Układ responsywny z dużymi sekcjami hero, kartami treningów oraz harmonogramem zajęć."
-          },
-          p4: {
-            category: "SIŁOWNIA",
-            desc: "Przykładowy layout strony dla siłowni Azure Gym. Strona oparta na HTML5 i CSS, z minimalistycznym designem i przejrzystym układem sekcji."
-          }
+p2: {
+  category: "E-COMMERCE",
+  desc: "Zaawansowana aplikacja webowa dla marki Shadow Lab. Interfejs oparty na kontraście czerni i neonu. Funkcjonalności obejmują customowy koszyk, system logowania oraz zarządzanie treścią poprzez Sanity CMS."
+},
         }
       }
     }
@@ -238,20 +230,12 @@ contact: {
         },
         items: {
           p1: {
-            category: "GAS&OIL",
-            desc: "Minimalist website for a GAS&OIL sector company. The project focuses on presenting the vision and years of brand experience."
+            category: "BRAND IDENTITY SITE",
+            desc: "Minimalist website for a GAS&OIL sector company, website include blog CMS via Sanity. The project focuses on presenting the vision and years of brand experience."
           },
           p2: {
-            category: "GAME DEV",
-            desc: "Simple website realized from provided client designs, focusing on animations and background depth."
-          },
-          p3: {
-            category: "MMA GYM",
-            desc: "Example layout for Fight Gym. Responsive layout with large hero sections, training cards, and class schedule."
-          },
-          p4: {
-            category: "GYM",
-            desc: "Example layout for Azure Gym. Based on HTML5 and CSS, featuring minimalist design and clear section layout."
+            category: "SPORT ECOMMERCE",
+            desc: "Advanced web application for the Shadow Lab brand. Interface based on the contrast of black and neon. Functionalities include a custom shopping cart, login system and content management via Sanity CMS."
           }
         }
       }
