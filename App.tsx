@@ -31,6 +31,7 @@ const App: React.FC = () => {
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'page_view', {
         page_path: virtualPath,
+        page_location: window.location.origin + virtualPath,
         page_title: activePage.charAt(0).toUpperCase() + activePage.slice(1) // Np. "Offer"
       });
     }
